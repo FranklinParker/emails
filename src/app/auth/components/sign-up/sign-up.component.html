@@ -1,1 +1,22 @@
-<p>sign-up works!</p>
+<h1>Create An Account</h1>
+<form [formGroup]="form"
+      class="ui form">
+  <div class="field">
+    <label>User Name</label>
+    <input formControlName="userName">
+  </div>
+  <div>
+    {{form.get('userName').errors|json}}
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input formControlName="password">
+  </div>
+  <div class="field">
+    <label>Password Confirmation</label>
+    <input formControlName="passwordConfirmation">
+  </div>
+  <button class="ui submit button primary">
+    Submit
+  </button>
+</form>
