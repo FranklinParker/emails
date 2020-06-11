@@ -1,9 +1,16 @@
 <h1>Create An Account</h1>
 <form [formGroup]="form"
       class="ui form">
-  <app-input label="Username" [control]="form.get('userName')"></app-input>
-  <app-input label="Password" [control]="form.get('password')"></app-input>
-  <app-input label="Password Confirmation" [control]="form.get('passwordConfirmation')"></app-input>
+  <app-input label="Username"
+             inputType="text"
+             [control]="form.get('userName')"></app-input>
+  <app-input label="Password"
+             inputType="password"
+             [control]="form.get('password')"></app-input>
+  <app-input
+    label="Password Confirmation"
+    inputType="password"
+    [control]="form.get('passwordConfirmation')"></app-input>
   <button class="ui submit button primary">
     Submit
   </button>
