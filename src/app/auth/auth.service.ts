@@ -13,4 +13,9 @@ export class AuthService {
     return this.http.post<{ available: boolean }>('https://api.angular-email.com/auth/username',
       {username})
   }
+
+  signup(signup: any) {
+    return this.http.post<any>('https://api.angular-email.com/auth/signup',
+      signup);
+  }
 }

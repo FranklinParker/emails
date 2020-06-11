@@ -1,9 +1,10 @@
 <h1>Create An Account</h1>
 <form [formGroup]="form"
+      (ngSubmit)="onSubmit()"
       class="ui form">
   <app-input label="Username"
              inputType="text"
-             [control]="form.get('userName')"></app-input>
+             [control]="form.get('username')"></app-input>
   <app-input label="Password"
              inputType="password"
              [control]="form.get('password')"></app-input>
@@ -11,10 +12,18 @@
     label="Password Confirmation"
     inputType="password"
     [control]="form.get('passwordConfirmation')"></app-input>
-  <button class="ui submit button primary">
-    Submit
-  </button>
-  <div>
-    {{form.errors|json}}
+  <ng-container *ngIf="form.errors">
+    <br>
+    <div class="ui red basic label">
+      <p *ngIf="form.errors.passwordsDoNotMatch">
+        Password and confirmation Passwords must match
+      </p>
+    </div>
+  </ng-container>
+  <div class="action">
+    <button class="ui submit button primary">
+      Submit
+    </button>
   </div>
+
 </form>
