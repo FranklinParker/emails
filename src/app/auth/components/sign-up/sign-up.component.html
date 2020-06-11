@@ -18,6 +18,9 @@
       <p *ngIf="form.errors.passwordsDoNotMatch">
         Password and confirmation Passwords must match
       </p>
+      <p *ngIf="form.errors.noConnection">
+        There is no connection
+      </p>
     </div>
   </ng-container>
   <div class="action">

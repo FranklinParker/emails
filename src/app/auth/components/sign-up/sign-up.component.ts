@@ -49,7 +49,9 @@ export class SignUpComponent implements OnInit {
           this.router.navigate(['']);
         },
         error: err => {
-
+          if(err.status ===0){
+            this.form.setErrors({noConnection: true});
+          }
         },
         complete: () => {}
       });
