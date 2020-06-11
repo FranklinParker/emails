@@ -8,18 +8,17 @@ import {
   from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
+import {AuthService} from '../auth.service';
 
 @Injectable({providedIn: 'root'})
 
 export class UniqueUserName implements AsyncValidator {
-  constructor(private httpClient: HttpClient) {
+  constructor(private authService: AuthService) {
   }
 
   validate = (formControl: FormControl): Observable<ValidationErrors | null> | null => {
     const {value} = formControl;
-    console.log(this.httpClient);
-    return this.httpClient.post<any>('https://api.angular-email.com/auth/username',
-      {username: value})
+    return this.authService.userNameAvailable(value)
       .pipe(
         map(value => {
           if (value.available) {
