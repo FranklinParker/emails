@@ -2,17 +2,8 @@
 <form [formGroup]="form"
       class="ui form">
   <app-input label="Username" [control]="form.get('userName')"></app-input>
-  <div>
-    {{form.get('userName').errors|json}}
-  </div>
-  <div class="field">
-    <label>Password</label>
-    <input formControlName="password">
-  </div>
-  <div class="field">
-    <label>Password Confirmation</label>
-    <input formControlName="passwordConfirmation">
-  </div>
+  <app-input label="Password" [control]="form.get('password')"></app-input>
+  <app-input label="Password Confirmation" [control]="form.get('passwordConfirmation')"></app-input>
   <button class="ui submit button primary">
     Submit
   </button>
