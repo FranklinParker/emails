@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  authUrl: 'https://api.angular-email.com/auth',
   production: false
 };
 
