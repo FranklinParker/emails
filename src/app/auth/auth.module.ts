@@ -6,10 +6,11 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
+import { SignoutComponent } from './components/signout/signout.component';
 
 
 @NgModule({
-  declarations: [SignInComponent, SignUpComponent],
+  declarations: [SignInComponent, SignUpComponent, SignoutComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

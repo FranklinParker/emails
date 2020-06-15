@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 
 import {SignupResponse} from './interface/signupResponse';
 import {SignupRequest} from './interface/signupRequest';
+import {SignedInResponse} from './interface/signedInResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,20 @@ export class AuthService {
   }
 
   checkAuth(){
-    return this.http.get( environment.authUrl + '/signedin',)
+    return this.http.get<SignedInResponse>( environment.authUrl + '/signedin',)
       .pipe(
         tap((resp)=>{
-          console.log('signed in', resp);
+          this.signedin$.next(resp.authenticated);
+        })
+      );
+  }
+
+  signout(){
+    return this.http.post<any>( environment.authUrl + '/signout', {})
+      .pipe(
+        tap((resp)=>{
+          console.log('sign out');
+          this.signedin$.next(false);
         })
       );
   }
