@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmailService} from '../../../email.service';
-import {SignedInResponse} from '../../../../auth/interface/signedInResponse';
-import {environment} from '../../../../../environments/environment';
-import {tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {EmailSummary} from '../../../interface/emailSummary';
 
 @Component({
   selector: 'app-email-list',
@@ -11,19 +10,11 @@ import {tap} from 'rxjs/operators';
 })
 export class EmailListComponent implements OnInit {
 
+  emails$: Observable<EmailSummary[] >;
   constructor(private emailService:EmailService) { }
 
   ngOnInit(): void {
-    this.emailService.getEmails().subscribe({
-      next: value => {
-        console.log('value', value);
-      },
-      error: err => {
-        console.log('error', err);
-      },
-      complete: () =>{}
-    }
-   );
+    this.emails$ = this.emailService.getEmails();
   }
 
 
