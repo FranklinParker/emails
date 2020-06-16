@@ -13,7 +13,7 @@ import {SignInCredentials} from './interface/signInCredentials';
   providedIn: 'root'
 })
 export class AuthService {
-  private signedin$ = new BehaviorSubject(false);
+  private signedin$ = new BehaviorSubject(null);
 
 
   constructor(private http: HttpClient) {
