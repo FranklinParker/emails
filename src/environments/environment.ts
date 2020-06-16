@@ -4,6 +4,7 @@
 
 export const environment = {
   authUrl: 'https://api.angular-email.com/auth',
+  emailUrl: 'https://api.angular-email.com/emails',
   production: false
 };
 
