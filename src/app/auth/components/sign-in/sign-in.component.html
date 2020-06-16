@@ -8,6 +8,14 @@
   <app-input label="Password"
              inputType="password"
              [control]="form.get('password')"></app-input>
+  <ng-container *ngIf="form.errors">
+    <br>
+    <div class="ui red basic label">
+      <p *ngIf="form.errors.credentials">
+        Auth Failed
+      </p>
+    </div>
+  </ng-container>
   <div class="action">
     <button [disabled]="form.invalid" class="ui submit button primary">
       Sign In
