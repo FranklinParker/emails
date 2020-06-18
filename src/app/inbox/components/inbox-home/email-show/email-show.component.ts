@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {EmailService} from '../../../email.service';
 import {Email} from '../../../interface/email';
 
 @Component({
@@ -11,8 +10,7 @@ import {Email} from '../../../interface/email';
 })
 export class EmailShowComponent implements OnInit {
   email: Email;
-  constructor(private activatedRoute: ActivatedRoute,
-              private emailService: EmailService) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   async ngOnInit() {
