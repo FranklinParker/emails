@@ -10,6 +10,7 @@ import { EmailReplyComponent } from './components/inbox-home/email-reply/email-r
 import { PlaceHolderComponent } from './components/inbox-home/place-holder/place-holder.component';
 import { NotFoundComponent } from './components/inbox-home/not-found/not-found.component';
 import {SharedModule} from '../shared/shared.module';
+import { EmailFormComponent } from './components/inbox-home/email-form/email-form.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {SharedModule} from '../shared/shared.module';
     EmailCreateComponent,
     EmailReplyComponent,
     PlaceHolderComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EmailFormComponent
   ],
   imports: [
     CommonModule,
