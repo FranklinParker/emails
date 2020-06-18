@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+
 import {EmailService} from '../../../email.service';
-import {switchMap} from 'rxjs/operators';
-import {Observable} from 'rxjs';
 import {Email} from '../../../interface/email';
 
 @Component({

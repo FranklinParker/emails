@@ -8,10 +8,11 @@ import { EmailShowComponent } from './components/inbox-home/email-show/email-sho
 import { EmailCreateComponent } from './components/inbox-home/email-create/email-create.component';
 import { EmailReplyComponent } from './components/inbox-home/email-reply/email-reply.component';
 import { PlaceHolderComponent } from './components/inbox-home/place-holder/place-holder.component';
+import { NotFoundComponent } from './components/inbox-home/not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [InboxHomeComponent, EmailListComponent, EmailShowComponent, EmailCreateComponent, EmailReplyComponent, PlaceHolderComponent],
+  declarations: [InboxHomeComponent, EmailListComponent, EmailShowComponent, EmailCreateComponent, EmailReplyComponent, PlaceHolderComponent, NotFoundComponent],
   imports: [
     CommonModule,
     InboxRoutingModule
