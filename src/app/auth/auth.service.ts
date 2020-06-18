@@ -14,7 +14,7 @@ import {SignInCredentials} from './interface/signInCredentials';
 })
 export class AuthService {
   private signedin$ = new BehaviorSubject(null);
-
+  username =  '';
 
   constructor(private http: HttpClient) {
   }
@@ -32,7 +32,11 @@ export class AuthService {
     return this.http.post<SignupResponse>(environment.authUrl+'/signup',
       signup,)
       .pipe(
-        tap(()=> this.signedin$.next(true))
+        tap(({username})=> {
+          this.signedin$.next(true);
+          this.username = username;
+        })
+
       );
   }
 
@@ -41,6 +45,7 @@ export class AuthService {
       .pipe(
         tap((resp)=>{
           this.signedin$.next(resp.authenticated);
+          this.username = resp.username;
         })
       );
   }
@@ -49,16 +54,17 @@ export class AuthService {
     return this.http.post<any>( environment.authUrl + '/signout', {})
       .pipe(
         tap((resp)=>{
-          console.log('sign out');
+          this.username = '';
           this.signedin$.next(false);
         })
       );
   }
   signin(credentials: SignInCredentials){
-    return this.http.post<any>( environment.authUrl + '/signin', credentials)
+    return this.http.post<SignedInResponse>( environment.authUrl + '/signin', credentials)
       .pipe(
         tap((resp)=>{
           console.log('sign in');
+          this.username = resp.username;
           this.signedin$.next(true);
         })
       );

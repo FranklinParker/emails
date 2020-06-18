@@ -3,10 +3,10 @@
   Compose
 </button>
 
-
-
 <app-modal *ngIf="showModal" (dismiss)="showModal = false">
   <h3 modalTitle>Compose</h3>
-  <app-email-form [email]="email"></app-email-form>
+  <app-email-form
+    (emailSend)="onSendEmail($event)"
+    [email]="email"></app-email-form>
   <button modalFooter class="ui button primary">Custom Button </button>
 </app-modal>
