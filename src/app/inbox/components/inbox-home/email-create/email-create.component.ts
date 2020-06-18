@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Email} from '../../../interface/email';
 import {AuthService} from '../../../../auth/auth.service';
+import {EmailService} from '../../../email.service';
 
 
 @Component({
@@ -18,12 +19,17 @@ export class EmailCreateComponent implements OnInit {
     text: ''
 
   };
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private emailService: EmailService) { }
 
   ngOnInit(): void {
   }
 
   onSendEmail(email: Email) {
     console.log('email', email);
+    this.emailService.sendEmail(email).subscribe(()=>{
+      this.showModal = false;
+    })
+
   }
 }
