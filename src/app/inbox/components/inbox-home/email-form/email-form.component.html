@@ -1,1 +1,15 @@
-<p>email-form works!</p>
+<form [formGroup]="emailForm" class="ui form">
+  <app-input [control]="emailForm.controls.from"
+             inputType="text"
+             label="From"> </app-input>
+  <app-input [control]="emailForm.controls.to"
+             inputType="text"
+             label="to"> </app-input>
+  <app-input [control]="emailForm.controls.subject"
+             inputType="text"
+             label="Subject"> </app-input>
+  <app-input [control]="emailForm.controls.text"
+             inputType="text"
+             label="Message"> </app-input>
+  <button class="ui primary button">send</button>
+</form>

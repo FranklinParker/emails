@@ -11,6 +11,7 @@ import { PlaceHolderComponent } from './components/inbox-home/place-holder/place
 import { NotFoundComponent } from './components/inbox-home/not-found/not-found.component';
 import {SharedModule} from '../shared/shared.module';
 import { EmailFormComponent } from './components/inbox-home/email-form/email-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EmailFormComponent } from './components/inbox-home/email-form/email-for
   imports: [
     CommonModule,
     InboxRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class InboxModule { }

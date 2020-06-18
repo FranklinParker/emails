@@ -11,7 +11,7 @@ export class EmailCreateComponent implements OnInit {
   showModal = false;
   email: Email = {
     id: '',
-    from: '',
+    from: 'fparker',
     to: '',
     subject: '',
     text: ''
