@@ -16,7 +16,7 @@ export class EmailFormComponent implements OnInit {
   ngOnInit(): void {
     const { from, to, subject, text } = this.email;
     this.emailForm = new FormGroup({
-      from: new FormControl(from),
+      from: new FormControl({value: from, disabled: true}),
       to: new FormControl(to,[Validators.required, Validators.email]),
       subject: new FormControl(subject, [Validators.required]),
       text: new FormControl(text, [Validators.required])
