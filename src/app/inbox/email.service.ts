@@ -22,7 +22,10 @@ export class EmailService {
       );
   }
   getEmail(id: string){
-     return this.http.get<Email>(`${environment.emailUrl}/${id}`);
+     return this.http.get<Email>(`${environment.emailUrl}/${id}`)
+       .pipe(
+         tap(email=> console.log(email))
+       );
   }
 
   sendEmail(email: Email){
